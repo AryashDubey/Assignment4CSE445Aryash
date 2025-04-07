@@ -2,7 +2,7 @@
 <!-- Error 1: Root element is Hotel instead of Hotels -->
 <Hotel>
   <Hotel Rating="4.2">
-    <n>Westin</n>
+    <Name>Westin</Name>
     <Phone>480-968-8885</Phone>
     <Phone>800-937-8461</Phone>
     <Address NearestAirport="Sky Harbor">
@@ -16,7 +16,7 @@
   
   <!-- Error 2: the required attribute is missing -->
   <Hotel Rating="4.5">
-    <n>Marriott Phoenix Resort Tempe</n>
+    <Name>Marriott Phoenix Resort Tempe</Name>
     <Phone>480-894-1400</Phone>
     <Address>
       <Number>300</Number>
@@ -29,7 +29,7 @@
   
   <!-- Error 3: the Phone element is missing -->
   <Hotel>
-    <n>Hilton Phoenix Resort</n>
+    <Name>Hilton Phoenix Resort</Name>
     <Address NearestAirport="Sky Harbor">
       <Number>2100</Number>
       <Street>S Priest Dr</Street>
@@ -41,7 +41,7 @@
   
   <!-- Error 4: the Address element has no closing tag -->
   <Hotel Rating="3.8">
-    <n>DoubleTree by Hilton Phoenix Tempe</n>
+    <Name>DoubleTree by Hilton Phoenix Tempe</Name>
     <Phone>480-967-1441</Phone>
     <Address NearestAirport="Sky Harbor">
       <Number>2100</Number>
@@ -54,8 +54,8 @@
   
   <!-- Error 5: there are two Name elements for one hotel -->
   <Hotel Rating="4.1">
-    <n>AC Hotel Phoenix Tempe</n>
-    <n>Second Name Not Allowed</n>
+    <Name>AC Hotel Phoenix Tempe</Name>
+    <Name>Second Name Not Allowed</Name>
     <Phone>480-642-6140</Phone>
     <Address NearestAirport="Sky Harbor">
       <Number>100</Number>

@@ -25,13 +25,13 @@ namespace ConsoleApp1
             Console.WriteLine(result);
         }
 
-        public static string Verification(string xmlUrl, string xsdURL)
+        public static string Verification(string xmlUrl, string xsdUrl)
         {
             try
             {
                 XmlReaderSettings rederSettings = new XmlReaderSettings();
                 rederSettings.ValidationType = ValidationType.Schema;
-                rederSettings.ValidationFlags = XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ProcessSchemaLocation | XmlSchemaValidationFlags.ReportValidationWarnings;
+                rederSettings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
                 
                 StringBuilder customErrMessages = new StringBuilder();
                 rederSettings.ValidationEventHandler += (sender, e) => {
@@ -46,7 +46,7 @@ namespace ConsoleApp1
                 try
                 {
                     clt = new WebClient();
-                    string xsdContent = clt.DownloadString(xsdURL);
+                    string xsdContent = clt.DownloadString(xsdUrl);
                     strRdr = new StringReader(xsdContent);
                     XmlSchema schma = null;
 
@@ -116,18 +116,12 @@ namespace ConsoleApp1
                 XmlDocument docForTheXml = new XmlDocument();
                 docForTheXml.LoadXml(contentForTheXml);
 
-                var jsonObject = new
-                {
-                    Hotels = JsonConvert.DeserializeObject(
-                        JsonConvert.SerializeXmlNode(docForTheXml.DocumentElement, Newtonsoft.Json.Formatting.Indented, true)
-                    )
-                };
+                string jsonText = JsonConvert.SerializeXmlNode(docForTheXml, Newtonsoft.Json.Formatting.Indented, true);
                 
-                string jsTxt = JsonConvert.SerializeObject(jsonObject, Newtonsoft.Json.Formatting.Indented);
-                jsTxt = jsTxt.Replace("\"@Rating\"", "\"_Rating\"");
-                jsTxt = jsTxt.Replace("\"@NearstAirport\"", "\"_NearstAirport\"");
+                jsonText = jsonText.Replace("\"@Rating\"", "\"_Rating\"");
+                jsonText = jsonText.Replace("\"@NearestAirport\"", "\"_NearestAirport\"");
                 
-                return jsTxt;
+                return jsonText;
             }
             catch (Exception ex)
             {
