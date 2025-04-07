@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Error 1: Root element is Hotel instead of Hotels -->
+<Hotel>
+  <Hotel Rating="4.2">
+    <n>Westin</n>
+    <Phone>480-968-8885</Phone>
+    <Phone>800-937-8461</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>11</Number>
+      <Street>E.7th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+  
+  <!-- Error 2: the required attribute is missing -->
+  <Hotel Rating="4.5">
+    <n>Marriott Phoenix Resort Tempe</n>
+    <Phone>480-894-1400</Phone>
+    <Address>
+      <Number>300</Number>
+      <Street>Rio Salado Parkway</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+  
+  <!-- Error 3: the Phone element is missing -->
+  <Hotel>
+    <n>Hilton Phoenix Resort</n>
+    <Address NearestAirport="Sky Harbor">
+      <Number>2100</Number>
+      <Street>S Priest Dr</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85282</Zip>
+    </Address>
+  </Hotel>
+  
+  <!-- Error 4: the Address element has no closing tag -->
+  <Hotel Rating="3.8">
+    <n>DoubleTree by Hilton Phoenix Tempe</n>
+    <Phone>480-967-1441</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>2100</Number>
+      <Street>S Priest Dr</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85282</Zip>
+  </Hotel>
+  
+  <!-- Error 5: there are two Name elements for one hotel -->
+  <Hotel Rating="4.1">
+    <n>AC Hotel Phoenix Tempe</n>
+    <n>Second Name Not Allowed</n>
+    <Phone>480-642-6140</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>100</Number>
+      <Street>E Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+</Hotel>
