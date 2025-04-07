@@ -49,7 +49,6 @@
       <City>Tempe</City>
       <State>AZ</State>
       <Zip>85282</Zip>
-    </Address>
   </Hotel>
   
   <!-- Error 5: there are two Name elements for one hotel -->
