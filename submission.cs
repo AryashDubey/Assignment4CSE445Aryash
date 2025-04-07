@@ -127,7 +127,7 @@ namespace ConsoleApp1
                 string jsonText = JsonConvert.SerializeXmlNode(docForTheXml, Newtonsoft.Json.Formatting.Indented, true);
                 
                 jsonText = jsonText.Replace("\"@Rating\"", "\"_Rating\"");
-                jsonText = jsonText.Replace("\"@NearestAirport\"", "\"_NearestAirport\"");
+                jsonText = jsonText.Replace("\"@NearstAirport\"", "\"_NearstAirport\"");
                 
                 return jsonText;
             }
