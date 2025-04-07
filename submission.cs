@@ -99,6 +99,14 @@ namespace ConsoleApp1
                     return "No Error";
                 }
             }
+            catch (WebException ex)
+            {
+                return $"Network error: {ex.Message}";
+            }
+            catch (XmlException ex)
+            {
+                return $"XML parsing error: Line {ex.LineNumber}, Position {ex.LinePosition}, {ex.Message}";
+            }
             catch (Exception ex)
             {
                 return $"Error: {ex.Message}";
@@ -125,7 +133,7 @@ namespace ConsoleApp1
             }
             catch (Exception ex)
             {
-                return $"Error: {ex.Message}";
+                return $"Error converting XML to JSON: {ex.Message}";
             }
             finally
             {
